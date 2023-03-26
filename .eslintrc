@@ -1,0 +1,17 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": ["plugin:@hapi/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "@hapi/no-arrowception": "off",
+        "@hapi/scope-start": "off",
+        "brace-style": ["warn", "1tbs"]
+    }
+}
