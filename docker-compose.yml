@@ -1,0 +1,26 @@
+services:
+    mongodb:
+        image: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=piranha
+            - MONGO_INITDB_ROOT_PASSWORD=peixevoraz
+        volumes:
+            - enguia-db:/data/db
+        ports:
+            - 27017:27017
+    hapi-typescript:
+        image: node:lts
+        command: yarn build
+        working_dir: /src
+        environment:
+            - DB_USER=piranha
+            - DB_PASSWORD=peixevoraz
+            - DB_URL=mongodb
+        ports:
+            - 9999:9999
+        volumes:
+            - type: bind
+              source: ./
+              target: /src
+volumes:
+    enguia-db:

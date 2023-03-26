@@ -1,0 +1,32 @@
+{
+  "name": "enguia-api",
+  "version": "0.0.1",
+  "main": "./build/server.js",
+  "author": "rrrafudu",
+  "license": "Proprietary",
+  "private": true,
+  "scripts": {
+    "mongo-dev": "dotenv -- cross-var docker container run --rm --name enguia-mongo --publish 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=%DB_USER% -e MONGO_INITDB_ROOT_PASSWORD=%DB_PASSWORD% mongo",
+    "dev": "yarn tsc; yarn tsc --watch & nodemon -r dotenv/config ./build/server.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "tsc": "tsc",
+    "build": "yarn install; yarn tsc --watch & yarn dev"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/hapi": "^21.3.0",
+    "dotenv": "^16.0.3",
+    "hapi-mongodb": "^10.0.3",
+    "mongodb": "^5.1.0"
+  },
+  "devDependencies": {
+    "@hapi/eslint-plugin": "^6.0.0",
+    "@tsconfig/node16": "^1.0.3",
+    "dotenv-cli": "^7.1.0",
+    "eslint": "^8.36.0",
+    "nodemon": "^2.0.22",
+    "ts-jest": "^29.0.5",
+    "typescript": "^5.0.2"
+  }
+}
